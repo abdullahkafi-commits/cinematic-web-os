@@ -3,8 +3,9 @@ import { projects } from "@/data/portfolio";
 import { cn } from "@/lib/utils";
 
 export function ProjectsPanel() {
-  const [activeId, setActiveId] = useState(projects[0].id);
-  const active = projects.find((p) => p.id === activeId) ?? projects[0];
+  const [activeId, setActiveId] = useState(projects[0]!.id);
+  const active = projects.find((p) => p.id === activeId) ?? projects[0]!;
+
 
   return (
     <div className="grid gap-5 md:grid-cols-[minmax(0,200px)_1fr]">
