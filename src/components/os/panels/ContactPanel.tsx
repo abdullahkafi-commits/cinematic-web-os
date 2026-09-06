@@ -11,7 +11,8 @@ export function ContactPanel() {
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const form = new FormData(e.currentTarget);
+    const formEl = e.currentTarget;
+    const form = new FormData(formEl);
     setStatus("sending");
     setError("");
     try {
@@ -24,7 +25,7 @@ export function ContactPanel() {
       });
       setReference(res.reference);
       setStatus("sent");
-      e.currentTarget.reset();
+      formEl.reset();
     } catch {
       setError("That didn't go through. Please check the fields and try again.");
       setStatus("error");
