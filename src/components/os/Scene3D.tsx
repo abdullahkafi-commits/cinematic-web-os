@@ -16,19 +16,21 @@ function Monolith() {
   });
 
   return (
-    <group ref={group}>
+    <group ref={group} scale={0.9} position-y={-0.15}>
       <mesh castShadow>
         <boxGeometry args={[1.5, 3.4, 1.5]} />
         <meshStandardMaterial
-          color="#0f1720"
-          metalness={0.95}
-          roughness={0.18}
-          envMapIntensity={1.6}
+          color="#1b2b36"
+          metalness={0.9}
+          roughness={0.22}
+          emissive="#0a3b47"
+          emissiveIntensity={0.55}
+          envMapIntensity={2.4}
         />
       </mesh>
       <mesh scale={[1.02, 1.005, 1.02]}>
         <boxGeometry args={[1.5, 3.4, 1.5]} />
-        <meshBasicMaterial color="#3fd8e8" wireframe transparent opacity={0.14} />
+        <meshBasicMaterial color="#3fd8e8" wireframe transparent opacity={0.28} />
       </mesh>
       <mesh position={[0, -1.72, 0]} rotation-x={-Math.PI / 2}>
         <ringGeometry args={[1.4, 1.75, 64]} />
@@ -85,13 +87,13 @@ export default function Scene3D() {
       camera={{ position: [0, 1.2, 8], fov: 45 }}
     >
       <fog attach="fog" args={["#0b1016", 10, 26]} />
-      <ambientLight intensity={0.5} />
+      <ambientLight intensity={0.8} />
       <directionalLight position={[6, 9, 5]} intensity={1.1} color="#bfefff" />
       <pointLight position={[-5, 2, 3]} intensity={22} color="#ffb454" distance={18} />
       <Environment resolution={128}>
-        <Lightformer intensity={2.2} position={[0, 5, 2]} scale={[10, 6, 1]} color="#cfefff" />
+        <Lightformer intensity={4} position={[0, 5, 2]} scale={[10, 6, 1]} color="#cfefff" />
         <Lightformer
-          intensity={1.4}
+          intensity={2.6}
           color="#ff9a3c"
           position={[-6, 1, -2]}
           rotation-y={Math.PI / 2}
