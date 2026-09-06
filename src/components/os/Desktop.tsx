@@ -58,8 +58,14 @@ export function Desktop() {
     mq.addEventListener("change", apply);
 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const cores = navigator.hardwareConcurrency ?? 4;
-    setHeavyOk(!reduced && cores >= 4);
+    let webgl = false;
+    try {
+      webgl = !!document.createElement("canvas").getContext("webgl2");
+    } catch {
+      webgl = false;
+    }
+    setHeavyOk(!reduced && webgl && (navigator.hardwareConcurrency ?? 4) >= 2);
+
     const t = setTimeout(() => setBooted(true), 400);
     return () => {
       mq.removeEventListener("change", apply);

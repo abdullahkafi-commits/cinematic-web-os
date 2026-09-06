@@ -63,7 +63,7 @@
   --border: oklch(0.99 0 0 / 12%);
   --input: oklch(0.99 0 0 / 16%);
   --ring: oklch(0.79 0.14 197);
-  --glass: oklch(0.22 0.03 264 / 62%);
+  --glass: oklch(0.19 0.028 264 / 86%);
 
   --gradient-void: radial-gradient(
       120% 90% at 50% 0%,
